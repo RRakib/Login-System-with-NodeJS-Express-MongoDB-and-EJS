@@ -1,5 +1,6 @@
 const express = require("express");
-const index = require("./Controller/index")
+const index = require("./Controller/index");
+const user = require("./Controller/user");
 const mongoose = require("mongoose")
 const app = express();
 
@@ -18,6 +19,7 @@ app.set("view engine" , "ejs")
 app.use(express.json());
 app.use(express.urlencoded({ extended : false}));
 app.use("/" , index)
+app.use("/" , user)
 app.use(express.static("Public"))
 
 

@@ -1,11 +1,12 @@
 const express = require("express");
 const index = require("./Controller/index");
 const user = require("./Controller/user");
+const key = require("./Config/key")
 const mongoose = require("mongoose")
 const app = express();
 
 // Connect To MongoDB
-mongoose.connect("mongodb+srv://Rakib:12345@todo-ptl6e.mongodb.net/Login?retryWrites=true" , {useNewUrlParser : true})
+mongoose.connect( key.mongoDB, {useNewUrlParser : true})
     .then(res => {
         console.log("Connected To MongoDB")
     })

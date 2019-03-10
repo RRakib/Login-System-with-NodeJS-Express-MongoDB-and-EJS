@@ -60,17 +60,15 @@ h1 , h2{
 .landing .regForm a{
     color: red;
 }
-.landing .regForm h4{
+.landing .regForm button{
     margin: 20px 0 0;
     padding: 5px;
-    width: 96%;
+    width: 98%;
     text-align: center;
     background: #c84344;
-    height: 25px;
-}
-.landing .regForm h4 a{
-    text-decoration: none;
-    color: #e6e6e6;    
+    height: 32px;
+    color: #e6e6e6;
+    border: none;
 }
 
 /* Login Form CSS */

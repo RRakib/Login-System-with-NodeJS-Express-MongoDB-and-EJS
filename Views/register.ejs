@@ -13,17 +13,19 @@
             <img src="/Image/reg.png" alt="">
             <h2>Register</h2>
         </div>
-        <div class="regForm">
-            <p>Name</p>
-            <input type="text" placeholder="Enter Name...">
-            <p>Email</p>
-            <input type="text" placeholder="Enter Email...">
-            <p>Password</p>
-            <input type="text" placeholder="Enter Password...">
-            <p>Confirm Password</p>
-            <input type="text" placeholder="Confirm Password...">
-            <h4> <a href="#">Register</a> </h4>
-            <p>Have an account? <a href="/login">Login</a></p>
+        <div class="regForm" >
+            <form method="POST" action="/register">
+                <p>Name</p>
+                <input type="text" placeholder="Enter Name..." name="name">
+                <p>Email</p>
+                <input type="email" placeholder="Enter Email..." name="email">
+                <p>Password</p>
+                <input type="password" placeholder="Enter Password..." name="password">
+                <p>Confirm Password</p>
+                <input type="password" placeholder="Confirm Password..." name="cpassword">
+                <button type="submit">Register</button>
+                <p>Have an account? <a href="/login">Login</a></p>
+            </form>
         </div>
     </div>
 

@@ -17,8 +17,8 @@ mongoose.connect( key.mongoDB, {useNewUrlParser : true})
 
 // MiddleWare
 app.set("view engine" , "ejs")
-app.use(express.json());
 app.use(express.urlencoded({ extended : false}));
+app.use(express.json());
 app.use("/" , index)
 app.use("/" , user)
 app.use(express.static("Public"))

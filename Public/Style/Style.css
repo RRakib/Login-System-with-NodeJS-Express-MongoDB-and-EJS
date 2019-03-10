@@ -1,0 +1,102 @@
+body , html{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url("../Image/1.jpg") no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h1 , h2{
+    padding: 0;
+    margin: 0;
+}
+.landing{
+    width: 30%;
+    margin: 5% auto 0;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 7px rgba(0,0,0,.2); 
+    padding: 15px;
+    color: #4f0305;
+    font-size: 17px;
+}
+.landing p {
+    margin: 5px 0;
+    padding: 5px 0; 
+}
+.landing .img img{
+    width: 95px;    
+    height: 95px;    
+}
+.landing .rL p:nth-child(1){
+    width: 100%;
+    background: #c84344; 
+}
+.landing .rL p:nth-child(2){
+    width: 100%;
+    background: #666;   
+}
+.landing .rL p a{
+    text-decoration: none;
+    color: #e6e6e6;    
+}
+
+
+/* Regestration Form CSS */
+
+.landing .regForm{
+    text-align: left;
+    color: #4f0305;
+}
+.landing .regForm input{
+    width: 96%;
+    border: none;
+    height: 25px;
+    padding: 5px;
+    background: #fff;
+}
+.landing .regForm a{
+    color: red;
+}
+.landing .regForm h4{
+    margin: 20px 0 0;
+    padding: 5px;
+    width: 96%;
+    text-align: center;
+    background: #c84344;
+    height: 25px;
+}
+.landing .regForm h4 a{
+    text-decoration: none;
+    color: #e6e6e6;    
+}
+
+/* Login Form CSS */
+.landing .logForm{
+    text-align: left;
+    color: #4f0305;
+}
+.landing .logForm input{
+    width: 96%;
+    border: none;
+    height: 25px;
+    padding: 5px;
+    background: #fff;
+}
+.landing .logForm a{
+    color: #335f84;
+}
+.landing .logForm h4{
+    margin: 20px 0 0;
+    padding: 5px;
+    width: 96%;
+    text-align: center;
+    background: #335f84;
+    height: 25px;
+}
+.landing .logForm h4 a{
+    text-decoration: none;
+    color: #e6e6e6;    
+}

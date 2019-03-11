@@ -16,14 +16,17 @@
         <div class="regForm" >
             <form method="POST" action="/register">
                 <p>Name</p>
+                <%= errn %>
                 <input type="text" placeholder="Enter Name..." name="name">
                 <p>Email</p>
+                <%= erre %>
                 <input type="email" placeholder="Enter Email..." name="email">
                 <p>Password</p>
+                <%= errp %>
                 <input type="password" placeholder="Enter Password..." name="password">
                 <p>Confirm Password</p>
                 <input type="password" placeholder="Confirm Password..." name="cpassword">
-                <button type="submit">Register</button>
+                <button type="submit" >Register</button>
                 <p>Have an account? <a href="/login">Login</a></p>
             </form>
         </div>

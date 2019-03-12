@@ -1,5 +1,6 @@
 const express = require("express")
 const user = require("../Model/User")
+const bcrypt = require("bcryptjs")
 const route = express.Router();
 
 
@@ -44,18 +45,24 @@ route.post("/register" , (req , res) => {
                 })
             }
             else{    
-                user({
-                    name : name,
-                    email : email,
-                    password : password
+                let newUser = user({
+                    name,
+                    email,
+                    password
                 })
-                .save()
-                .then(res => {
-                    console.log("Data Saved " + res)
-                })
-                .catch(err => {
-                    console.log("OPPS!! Error occures " + err)
-                })
+                bcrypt.genSalt(10 , (err , salt) => 
+                    bcrypt.hash(newUser.password , salt , (err , hash) => {
+                        if(err) throw err;
+                        newUser.password = hash;
+                        newUser.save()
+                        .then(res => {
+                            console.log("Data Saved " + res)
+                        })
+                        .catch(err => {
+                            console.log("OPPS!! Error occures " + err)
+                        })
+                    })
+                ) 
                 res.send("Registration Completed")
             }
         })

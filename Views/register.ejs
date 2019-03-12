@@ -14,15 +14,13 @@
             <h2>Register</h2>
         </div>
         <div class="regForm" >
+            <% include ./partials/message %>
             <form method="POST" action="/register">
                 <p>Name</p>
-                <%= errn %>
-                <input type="text" placeholder="Enter Name..." name="name">
+                <input type="text" placeholder="Enter Name..." name="name" value=<%= errors.length > 0? name : "" %>>
                 <p>Email</p>
-                <%= erre %>
-                <input type="email" placeholder="Enter Email..." name="email">
+                <input type="email" placeholder="Enter Email..." name="email" value = <%= errors.length > 0? email : "" %>>
                 <p>Password</p>
-                <%= errp %>
                 <input type="password" placeholder="Enter Password..." name="password">
                 <p>Confirm Password</p>
                 <input type="password" placeholder="Confirm Password..." name="cpassword">

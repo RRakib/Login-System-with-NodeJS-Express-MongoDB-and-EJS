@@ -9,59 +9,61 @@ route.get("/login" , (req , res) => {
 
 route.get("/register" , (req , res) => {
     res.render("register" , {
-        erre : "",
-        errp : "",
-        errn : "",
+        errors : []
     })
 })
 route.post("/register" , (req , res) => {
-    user.findOne({email : req.body.email}).then(response => {
-        if(response){
-            res.send("Already registered")
-        }
-        else if(!req.body.name){
-            res.render("register" , {
-                errn : "Please Fill The Slots"
-            })
-        }
-        else if(!req.body.email){
-            res.render("register" , {
-                erre : "Please Fill The Slots"
-            })
-        }
-        else if(!req.body.password){
-            res.render("register" , {
-                errp : "Please Fill The Slots"
-            })
-        }
-        else if(req.body.password.length < 7){
-            res.render("register" , {
-                errp : "Password much be greater then 8 characters"
-            })
-        }
-        else if(req.body.password !== req.body.cpassword){
-            res.send("Password doesn't match")
-        }
-        else{    
-            user({
-                name : req.body.name,
-                email : req.body.email,
-                password : req.body.password
-            })
-            .save()
-            .then(res => {
-                console.log("Data Saved ")
-            })
-            .catch(err => {
-                console.log("OPPS!! Error occures " + err)
-            })
-            res.send("Registration Completed")
-        }
-    })
-    .catch(err => {
-        console.log(err)
-    })
-
+    errors = [];
+    const { name , email, password} = req.body
+    if( !name || !email || !password){
+        errors.push({err : "Please insert all fileds"})
+    }
+    if( password.length < 7){
+        errors.push({ err : "Password Length Must Be Greater Then 8"})
+    }
+    if(password !== req.body.cpassword){
+        errors.push({ err : "Password Didn't match"})
+    }
+    if(errors.length > 0){
+        res.render("register", {
+            errors,
+            name,
+            email
+        })
+    }
+    else{
+        console.log(req.body)
+        user.findOne({email : email}).then(response => {
+            if(response){
+                res.render("register" , {
+                    errors : [{
+                        err : "Already Registered"
+                    }],
+                    name : "",
+                    email: ""
+                })
+            }
+            else{    
+                user({
+                    name : name,
+                    email : email,
+                    password : password
+                })
+                .save()
+                .then(res => {
+                    console.log("Data Saved " + res)
+                })
+                .catch(err => {
+                    console.log("OPPS!! Error occures " + err)
+                })
+                res.send("Registration Completed")
+            }
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+    
 })
     
 

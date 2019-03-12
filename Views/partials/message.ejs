@@ -1,0 +1,5 @@
+<% if(errors.length > 0){ %>
+    <% errors.forEach(err => {%>
+       <p class="errors"> <%= err.err%> </p>
+    <% })%>
+<% } %>

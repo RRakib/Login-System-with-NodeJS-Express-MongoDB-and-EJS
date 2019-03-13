@@ -2,8 +2,12 @@ const express = require("express");
 const index = require("./Controller/index");
 const user = require("./Controller/user");
 const key = require("./Config/key")
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const passport = require("passport");
+const session = require("express-session");
+const passportFile = require("./Config/passport")
 const app = express();
+passportFile(passport)
 
 // Connect To MongoDB
 mongoose.connect( key.mongoDB, {useNewUrlParser : true})
@@ -22,6 +26,13 @@ app.use(express.json());
 app.use("/" , index)
 app.use("/" , user)
 app.use(express.static("Public"))
+app.use(session({
+    secret : "secret",
+    resave : true,
+    saveUninitialized : true
+}))
+app.use(passport.initialize());
+app.use(passport.session())
 
 
 

@@ -63,7 +63,13 @@ route.post("/register" , (req , res) => {
                         })
                     })
                 ) 
-                res.send("Registration Completed")
+                res.render("register" , {
+                    errors : [{
+                        err : "Successfully Registered"
+                    }],
+                    name : "",
+                    email: ""
+                })
             }
         })
         .catch(err => {

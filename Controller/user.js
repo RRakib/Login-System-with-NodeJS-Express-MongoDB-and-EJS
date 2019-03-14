@@ -34,7 +34,6 @@ route.post("/register" , (req , res) => {
         })
     }
     else{
-        console.log(req.body)
         user.findOne({email : email}).then(response => {
             if(response){
                 res.render("register" , {
@@ -57,7 +56,7 @@ route.post("/register" , (req , res) => {
                         newUser.password = hash;
                         newUser.save()
                         .then(res => {
-                            console.log("Data Saved " + res)
+                            console.log("Data Saved ")
                         })
                         .catch(err => {
                             console.log("OPPS!! Error occures " + err)
@@ -87,7 +86,7 @@ route.post("/login" , (req, res , next) => {
     console.log(req.body)
     passport.authenticate("local" , {
         successRedirect : "/dashbord",
-        failureRedirect : "/login"
+        failureRedirect : "/register"
     })(req, res, next)
 })
     

@@ -3,8 +3,8 @@ const index = require("./Controller/index");
 const user = require("./Controller/user");
 const key = require("./Config/key")
 const mongoose = require("mongoose");
-const passport = require("passport");
 const session = require("express-session");
+const passport = require("passport");
 const passportFile = require("./Config/passport")
 const app = express();
 passportFile(passport)
@@ -23,8 +23,6 @@ mongoose.connect( key.mongoDB, {useNewUrlParser : true})
 app.set("view engine" , "ejs")
 app.use(express.urlencoded({ extended : false}));
 app.use(express.json());
-app.use("/" , index)
-app.use("/" , user)
 app.use(express.static("Public"))
 app.use(session({
     secret : "secret",
@@ -33,6 +31,8 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session())
+app.use("/" , index)
+app.use("/" , user)
 
 
 

@@ -14,11 +14,13 @@
             <h2>Login</h2>
         </div>
         <div class="logForm">
+            <form action="/login" method="POST">
             <p>Email</p>
-            <input type="text" placeholder="Enter Email...">
+            <input type="email" placeholder="Enter Email...">
             <p>Password</p>
-            <input type="text" placeholder="Enter Password...">
-            <h4> <a href="#">Login</a> </h4>
+            <input type="password" placeholder="Enter Password...">
+            <button type="submit">Login</button>
+            </form>
             <p>Don't have any account? <a href="/register">Register</a></p>
             <span><a href="/login">Forgot Password?</a></span>
         </div>

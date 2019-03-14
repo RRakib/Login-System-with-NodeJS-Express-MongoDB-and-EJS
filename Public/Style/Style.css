@@ -82,6 +82,16 @@ h1 , h2{
     text-align: left;
     color: #4f0305;
 }
+.landing .logForm button{
+    margin: 20px 0 0;
+    padding: 5px;
+    width: 98%;
+    text-align: center;
+    background: #335f84;
+    height: 32px;
+    color: #e6e6e6;
+    border: none;
+}
 .landing .logForm input{
     width: 96%;
     border: none;

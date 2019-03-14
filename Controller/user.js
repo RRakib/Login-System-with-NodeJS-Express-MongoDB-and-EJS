@@ -79,9 +79,12 @@ route.post("/register" , (req , res) => {
     }
     
 })
-
+route.get("/dashbord" , (req , res) => {
+    res.send("Dashbord")
+})
 
 route.post("/login" , (req, res , next) => {
+    console.log(req.body)
     passport.authenticate("local" , {
         successRedirect : "/dashbord",
         failureRedirect : "/login"

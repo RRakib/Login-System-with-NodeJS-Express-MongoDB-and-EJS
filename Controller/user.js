@@ -6,7 +6,9 @@ const route = express.Router();
 
 
 route.get("/login" , (req , res) => {
-    res.render("login")
+    res.render("login" , {
+        message : ""   
+    })
 })
 
 route.get("/register" , (req , res) => {
@@ -84,9 +86,18 @@ route.get("/dashbord" , (req , res) => {
 
 route.post("/login" , (req, res , next) => {
     console.log(req.body)
-    passport.authenticate("local" , {
-        successRedirect : "/dashbord",
-        failureRedirect : "/register"
+    passport.authenticate("local" , (err , user , info) => {
+        if(err){
+            return next(err)
+        }
+        if(!user){
+            return res.render("login" , {
+                message : "Wrong Information"    
+            })
+        }
+        else{
+            return res.redirect("/dashbord")
+        }
     })(req, res, next)
 })
     

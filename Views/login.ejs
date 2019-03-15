@@ -14,6 +14,9 @@
             <h2>Login</h2>
         </div>
         <div class="logForm">
+                <% if(message.length > 1) {%>
+                        <p class="errors"><%= message %></p>
+                <% } %>
             <form action="/login" method="POST">
             <p>Email</p>
             <input type="email" placeholder="Enter Email..." name="email">

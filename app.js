@@ -1,6 +1,6 @@
 const express = require("express");
-const index = require("./Controller/index");
 const user = require("./Controller/user");
+const index = require("./Controller/index");
 const key = require("./Config/key")
 const mongoose = require("mongoose");
 const session = require("express-session");

@@ -80,25 +80,17 @@ route.post("/register" , (req , res) => {
     }
     
 })
-route.get("/dashbord" , (req , res) => {
-    res.send("Dashbord")
-})
+
 
 route.post("/login" , (req, res , next) => {
-    console.log(req.body)
-    passport.authenticate("local" , (err , user , info) => {
-        if(err){
-            return next(err)
-        }
-        if(!user){
-            return res.render("login" , {
-                message : "Wrong Information"    
-            })
-        }
-        else{
-            return res.redirect("/dashbord")
-        }
+    passport.authenticate("local" , {
+        successRedirect : "/dashbord",
+        failureRedirect: "/login"
     })(req, res, next)
+})
+route.get("/logout" , (req, res) => {
+    req.logout();
+    res.redirect("/login")
 })
     
 

@@ -1,2 +1,2 @@
-# Login-System-MERN-Stack
-Login System with MERN Stack.
+# Login System with NodeJS, Express, MongoDB and EJS
+Login System with NodeJS, Express, MongoDB and EJS
